@@ -4,7 +4,7 @@ const falkawnData = {
     hmun: "Falkawn Hmarveng (Near ZMC)",
     man: "₹50 - ₹200 (Zan khat)",
     status: "Available", // "Full" tiin i thlak thei ang
-    phone: "9612111306", // Enkawltu phone number dik tak
+    phone: "8413850876", // Enkawltu phone number dik tak
     waMessage: "Chibai, Falkawn Synod Khualbuk-ah hian pindan ruak a la awm em?"
 };
 
