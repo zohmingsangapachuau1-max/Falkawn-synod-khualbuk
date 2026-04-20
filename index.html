@@ -39,6 +39,19 @@
 </footer>
 
 <script src="script.js"></script>
-
+/** * ADMIN PANEL LOGIC 
+ * LocalStorage atanga status thar lakna. 
+ * He code hian a hnuai lama 'falkawnData' status kha a rawn thlak (override) dawn a ni.
+ */
+const savedStatus = localStorage.getItem('khualbukStatus');
+if (savedStatus) {
+    // Falkawn data object kha a lo awm hmasak loh pawhin a hnuai script-in a hman theih nan kan siam lawk a ni.
+    window.addEventListener('DOMContentLoaded', () => {
+        if (typeof falkawnData !== 'undefined') {
+            falkawnData.status = savedStatus;
+            renderFalkawnApp(); // Thlak hnuah a thar kan rawn lantir leh ang
+        }
+    });
+}
 </body>
 </html>
