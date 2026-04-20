@@ -3,31 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enkawltu Panel</title>
+    <title>Enkawltu Login - Falkawn Khualbuk</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .admin-card { background: white; padding: 30px; border-radius: 15px; text-align: center; margin-top: 50px; }
-        .status-btn { width: 100%; padding: 15px; margin: 10px 0; border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; }
-        .btn-available { background-color: #28a745; }
-        .btn-full { background-color: #dc3545; }
+        .login-box { max-width: 400px; margin: 80px auto; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
+        .input-group { margin-bottom: 15px; text-align: left; }
+        input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; box-sizing: border-box; margin-top: 5px; }
+        #adminPanel { display: none; } /* A tirah a inthup rih ang */
+        .btn-status { width: 100%; padding: 15px; margin: 10px 0; border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; font-size: 16px; }
+        .btn-login { background: #005aab; width: 100%; border: none; padding: 12px; color: white; border-radius: 8px; cursor: pointer; font-weight: bold; }
     </style>
 </head>
 <body>
-    <header><h1>Admin Panel</h1></header>
-    <div class="container">
-        <div class="admin-card">
-            <h3>Falkawn Synod Khualbuk Status Update</h3>
-            <button onclick="setStatus('Available')" class="status-btn btn-available">SET: A RUAK A AWM</button>
-            <button onclick="setStatus('Full')" class="status-btn btn-full">SET: A KHAT TAWH</button>
-            <br><br>
-            <a href="index.html" style="color: #005aab;">← App-ah let leh rawh</a>
+
+<div class="container">
+    <div id="loginForm" class="login-box">
+        <h2 style="color: #005aab;">Admin Login</h2>
+        <p style="font-size: 14px; color: #666;">Enkawltu chauh luhna a ni.</p>
+        
+        <div class="input-group">
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Username ziak rawh">
         </div>
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Password ziak rawh">
+        </div>
+        
+        <button onclick="checkLogin()" class="btn-login">Lut rawh</button>
+        <p id="error" style="color: red; font-size: 13px; display: none; margin-top: 10px;">Username emaw Password a dik lo!</p>
     </div>
-    <script>
-        function setStatus(status) {
-            localStorage.setItem('khualbukStatus', status);
-            alert("Status chu '" + status + "' ah thlak a ni ta!");
+
+    <div id="adminPanel" class="card" style="margin-top: 50px; text-align: center; padding: 30px;">
+        <h2 style="color: #005aab;">Update Status</h2>
+        <p>Falkawn Synod Khualbuk status hi heta tang hian thlak zung zung rawh.</p>
+        
+        <button onclick="setStatus('Available')" class="btn-status" style="background: #28a745;">SET: A RUAK A AWM</button>
+        <button onclick="setStatus('Full')" class="btn-status" style="background: #dc3545;">SET: A KHAT TAWH</button>
+        
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+        <button onclick="logout()" style="background: none; border: none; color: #999; cursor: pointer; font-size: 14px;">Log Out</button>
+        <br><br>
+        <a href="index.html" style="text-decoration: none; color: #005aab; font-size: 14px;">← App hma berah let rawh</a>
+    </div>
+</div>
+
+<script>
+    /**
+     * I LOGIN DETAILS:
+     * Hming: admin
+     * Password: falkawn123
+     */
+    const USER_DATA = "admin";
+    const PASS_DATA = "falkawn123";
+
+    function checkLogin() {
+        const u = document.getElementById('username').value;
+        const p = document.getElementById('password').value;
+
+        if(u === USER_DATA && p === PASS_DATA) {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'block';
+        } else {
+            document.getElementById('error').style.display = 'block';
         }
-    </script>
+    }
+
+    function setStatus(status) {
+        localStorage.setItem('khualbukStatus', status);
+        alert("Khualbuk status chu '" + status + "' ah thlak a ni ta! Website hawn leh hmasak berah a in-update nghal ang.");
+    }
+
+    function logout() {
+        location.reload(); 
+    }
+</script>
+
 </body>
 </html>
