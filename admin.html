@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enkawltu Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-card { background: white; padding: 30px; border-radius: 15px; text-align: center; margin-top: 50px; }
+        .status-btn { width: 100%; padding: 15px; margin: 10px 0; border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; }
+        .btn-available { background-color: #28a745; }
+        .btn-full { background-color: #dc3545; }
+    </style>
+</head>
+<body>
+    <header><h1>Admin Panel</h1></header>
+    <div class="container">
+        <div class="admin-card">
+            <h3>Falkawn Synod Khualbuk Status Update</h3>
+            <button onclick="setStatus('Available')" class="status-btn btn-available">SET: A RUAK A AWM</button>
+            <button onclick="setStatus('Full')" class="status-btn btn-full">SET: A KHAT TAWH</button>
+            <br><br>
+            <a href="index.html" style="color: #005aab;">← App-ah let leh rawh</a>
+        </div>
+    </div>
+    <script>
+        function setStatus(status) {
+            localStorage.setItem('khualbukStatus', status);
+            alert("Status chu '" + status + "' ah thlak a ni ta!");
+        }
+    </script>
+</body>
+</html>
