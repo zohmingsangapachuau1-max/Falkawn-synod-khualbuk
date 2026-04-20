@@ -25,7 +25,7 @@ function renderFalkawnApp() {
             <p><strong>💰 Man:</strong> ${falkawnData.man}</p>
             
             <div class="btn-group">
-                <a href="tel:${falkawnData.phone}" class="btn" style="background-color: #007bff;">Call Enkawltu</a>
+                <a href="tel:${falkawnData.phone}" class="btn" style="background-color: #007bff;">Call</a>
                 <a href="${waLink}" target="_blank" class="btn" style="background-color: #25D366;">WhatsApp</a>
             </div>
         </div>
